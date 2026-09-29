@@ -1,0 +1,68 @@
+{
+  "name": "jwt-term",
+  "version": "1.0.0",
+  "description": "High-fidelity inline terminal JWT inspector, decoder, signature verifier, and expiry countdown timer across macOS, Linux, Windows, PowerShell, Bash, and Zsh.",
+  "keywords": [
+    "jwt",
+    "json-web-token",
+    "jwt-decoder",
+    "jwt-inspector",
+    "token",
+    "auth",
+    "signature-verifier",
+    "cli",
+    "terminal",
+    "developer-tools"
+  ],
+  "author": "authoritydmc",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/authoritydmc/jwt-term.git"
+  },
+  "bugs": {
+    "url": "https://github.com/authoritydmc/jwt-term/issues"
+  },
+  "homepage": "https://github.com/authoritydmc/jwt-term#readme",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "jwt-term": "./dist/cli.js",
+    "jwtx": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "tsx --test src/test/jwt-term.test.ts",
+    "lint": "eslint src/ --ext .ts",
+    "prepublishOnly": "npm run build && npm test",
+    "release:patch": "npm version patch && git push origin main --follow-tags",
+    "release:minor": "npm version minor && git push origin main --follow-tags",
+    "release:major": "npm version major && git push origin main --follow-tags"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsup": "^8.2.4",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
